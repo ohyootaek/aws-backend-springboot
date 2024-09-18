@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: study
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/yootaekstudy
+    username: yootaek
+    password: 2580
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+mybatis:
+  mapper-locations: classpath:mappers/**/*.xml
+  configuration:
+    map-underscore-to-camel-case: true
+    default-fetch-size: 100
+    default-statement-timeout: 30
