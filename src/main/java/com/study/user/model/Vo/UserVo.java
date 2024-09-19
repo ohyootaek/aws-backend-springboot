@@ -3,6 +3,9 @@ package com.study.user.model.Vo;
 import lombok.Getter;
 import lombok.Setter;
 
+/**
+ * userVo 사용자정보 조회 outVo
+ */
 @Getter
 @Setter
 public class UserVo {

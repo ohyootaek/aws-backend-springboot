@@ -3,6 +3,9 @@ package com.study.user.model.dto;
 import lombok.Getter;
 import lombok.Setter;
 
+/**
+ * userDto 사용자 정보 조회 response data
+ */
 @Getter
 @Setter
 public class UserDto {
