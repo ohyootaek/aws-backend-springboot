@@ -3,12 +3,12 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.study.user.mapper.UserMapper">
-  <select id="selectUserInfo" resultType="com.study.user.model.Vo.UserVo">
+  <select id="selectUserInfo" resultType="com.study.user.model.Vo.UserOutVo">
     <![CDATA[
     SELECT A.*
       FROM user_info A
      WHERE A.id = #{id}
-
+       AND A.pwd = #{pwd}
     ]]>
     <!--com.study.mapper.UserMapper.selectUserInfo-->
   </select>

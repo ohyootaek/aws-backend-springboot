@@ -19,11 +19,3 @@ mybatis:
     map-underscore-to-camel-case: true
     default-fetch-size: 100
     default-statement-timeout: 30
-
-server:
-  port: 443
-  ssl:
-    key-store: classpath:keystore.jks
-    key-store-password: 258025
-    key-store-type: PKCS12
-    key-alias: selfsigned
