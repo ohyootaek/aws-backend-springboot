@@ -34,9 +34,11 @@ public class RedisController {
       if (value != null) {
         return ResponseEntity.ok(value); // 200 OK, 값이 존재할 경우
       } else {
+
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null); // 404 Not Found
       }
     } catch (Exception e) {
+
       return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
           .body(null); // 500 Internal Server Error
     }
