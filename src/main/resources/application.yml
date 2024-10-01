@@ -1,73 +1,11 @@
 spring:
-  profiles:
-    active: local
-    group:
-      local: local, common
-      blue: blue, common
-      green: green, common
-
-server:
-  env: blue
-
----
-
-spring:
-  config:
-    activate:
-      on-profile: local
+  application:
+    name: study
   datasource:
     url: jdbc:postgresql://localhost:5432/yootaekstudy
     username: yootaek
     password: 2580
     driver-class-name: org.postgresql.Driver
-server:
-  port: 8080
-  serverAddress: localhost
-
-serverName: localhost
-
----
-
-spring:
-  config:
-    activate:
-      on-profile: blue
-  datasource:
-    url: jdbc:postgresql://localhost:5432/postgres
-    username: yootaek
-    password: 2580
-    driver-class-name: org.postgresql.Driver
-server:
-  port: 8080
-  serverAddress: 15.164.246.46
-
-serverName: blue_server
-
----
-
-spring:
-  config:
-    activate:
-      on-profile: green
-  datasource:
-    url: jdbc:postgresql://localhost:5432/postgres
-    username: yootaek
-    password: 2580
-    driver-class-name: org.postgresql.Driver
-server:
-  port: 8081
-  serverAddress: 15.164.246.46
-
-serverName: green_server
-
----
-
-spring:
-  config:
-    activate:
-      on-profile: common
-  application:
-    name: study
   jpa:
     hibernate:
       ddl-auto: update
