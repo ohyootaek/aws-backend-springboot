@@ -1,14 +1,5 @@
-# Base image
-FROM openjdk:17-jdk-slim
-
-# Set the working directory
-WORKDIR /app
-
-# Copy the Maven build output (jar file)
-COPY target/study-0.0.1-SNAPSHOT.jar app.jar
-
-# Expose the application port
-EXPOSE 8080
-
-# Command to run the application
-ENTRYPOINT ["java", "-jar", "app.jar"]
+FROM bellsoft/liberica-openjdk-alpine:17
+ARG JAR_FILE=build/libs/*.jar
+COPY ${JAR_FILE} app.jar
+# 도커 컨테이너를 시작할 때 실행할 명령어
+ENTRYPOINT ["java","-jar","/app.jar"]
