@@ -17,6 +17,7 @@ jobs:
         uses: actions/setup-java@v2
         with:
           java-version: '17'
+          distribution: 'temurin'  # 또는 'adopt'와 같은 다른 배포판
 
       - name: Build with Maven
         run: mvn clean package -DskipTests
