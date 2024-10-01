@@ -14,10 +14,8 @@ public class UserOutVo {
   private String pwd;
   private String phone;
   private String name;
-  private String address1;
-  private String address2;
-  private String email1;
-  private String email2;
+  private String address;
+  private String email;
   private String image_path;
   private String role;
 }

@@ -5,7 +5,13 @@
 <mapper namespace="com.study.user.mapper.UserMapper">
   <select id="selectUserInfo" resultType="com.study.user.model.Vo.UserOutVo">
     <![CDATA[
-    SELECT A.*
+    SELECT A.id
+         , A.pwd
+         , A.phone
+         , A.name
+         , A.role
+         , A.image_path
+         , A.email
       FROM user_info A
      WHERE A.id = #{id}
        AND A.pwd = #{pwd}

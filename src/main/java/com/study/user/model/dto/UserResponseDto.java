@@ -1,5 +1,6 @@
 package com.study.user.model.dto;
 
+import com.study.user.model.Vo.JwtTokenVo;
 import com.study.user.model.Vo.UserOutVo;
 import lombok.Getter;
 import lombok.Setter;
@@ -12,4 +13,5 @@ import lombok.Setter;
 public class UserResponseDto {
 
   private UserOutVo userInfo;
+  private JwtTokenVo jwtToken;
 }
