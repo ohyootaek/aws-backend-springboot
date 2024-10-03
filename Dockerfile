@@ -7,5 +7,7 @@ ARG JAR_FILE=target/*.jar
 # JAR 파일을 컨테이너로 복사
 COPY ${JAR_FILE} app.jar
 
+EXPOSE 8080
+
 # 도커 컨테이너를 시작할 때 실행할 명령어
 ENTRYPOINT ["java","-jar","/app.jar"]
