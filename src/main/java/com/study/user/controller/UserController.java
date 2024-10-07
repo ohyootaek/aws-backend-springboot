@@ -34,6 +34,7 @@ public class UserController {
   public UserResponseDto postLogin(@RequestBody UserInDto dto) {
     /*vo 변환*/
     UserInVo vo = userMapstruct.toInUserDto(dto);
+
     /*암호화 후 사용자 정보 조회*/
     String pwd = vo.getPwd();
     String digest = HashUtil.hashSHA256(pwd);
