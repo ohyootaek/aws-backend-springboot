@@ -5,6 +5,12 @@ spring:
       - "https://cariros.store"
       - "http://www.cariros.store"
       - "https://www.cariros.store"
+    allowed-methods:
+      - GET
+      - POST
+      - PUT
+      - DELETE
+      - OPTIONS
   datasource:
     url: jdbc:postgresql://yootaek.cfw0s4ai6brl.ap-northeast-2.rds.amazonaws.com:5432/postgres
     username: postgres
