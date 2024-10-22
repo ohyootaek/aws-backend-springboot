@@ -1,13 +1,18 @@
 spring:
+  config:
+    activate:
+      on-profile: local
   cors:
     allowed-origins:
-      - "http://localhost:3000"
+      - http://localhost:3000
     allowed-methods:
       - GET
       - POST
       - PUT
       - DELETE
       - OPTIONS
+    allowed-headers:
+      - "*"
   datasource:
     url: jdbc:postgresql://localhost:5432/yootaekstudy
     username: yootaek
