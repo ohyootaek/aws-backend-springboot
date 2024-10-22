@@ -1,4 +1,7 @@
 spring:
+  cors:
+    allowed-origins:
+      - "http://localhost:3000"
   datasource:
     url: jdbc:postgresql://localhost:5432/yootaekstudy
     username: yootaek

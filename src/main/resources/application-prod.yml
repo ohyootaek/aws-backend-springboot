@@ -1,7 +1,12 @@
 spring:
+  cors:
+    allowed-origins:
+      - "http://cariros.store"
+      - "https://cariros.store"
+      - "http://www.cariros.store"
+      - "https://www.cariros.store"
   datasource:
     url: jdbc:postgresql://yootaek.cfw0s4ai6brl.ap-northeast-2.rds.amazonaws.com:5432/postgres
-
     username: postgres
     password: dhdbxor12!
     driver-class-name: org.postgresql.Driver
