@@ -2,21 +2,21 @@ spring:
   config:
     activate:
       on-profile: local
-  cloud:
-    gateway:
-      globalcors:
-        cors-configurations:
-          '[/**]':
-            allow-credentials: true
-            allowed-origins:
-              - http://localhost:3000
-            allowed-headers: "*"
-            allowed-methods:
-              - PUT
-              - GET
-              - POST
-              - DELETE
-              - OPTIONS
+  cors:
+    allowed-origins:
+      - "http://cariros.store"
+      - "https://cariros.store"
+      - "http://www.cariros.store"
+      - "https://www.cariros.store"
+    allowed-methods:
+      - GET
+      - POST
+      - PUT
+      - DELETE
+      - OPTIONS
+    allowed-headers: "*"
+    allow-credentials: true
+
   datasource:
     url: jdbc:postgresql://localhost:5432/yootaekstudy
     username: yootaek

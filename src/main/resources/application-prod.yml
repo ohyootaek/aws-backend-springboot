@@ -2,25 +2,18 @@ spring:
   config:
     activate:
       on-profile: prod
-  cloud:
-    gateway:
-      globalcors:
-        cors-configurations:
-          '[/**]':
-            allow-credentials: true
-            allowed-origins:
-              - http://cariros.store
-              - https://cariros.store
-              - http://www.cariros.store
-              - https://www.cariros.store
-            allowed-headers: "*"
-            allowed-methods:
-              - PUT
-              - GET
-              - POST
-              - DELETE
-              - OPTIONS
-              -
+  cors:
+    allowed-origins:
+      - "http://localhost:3000"
+    allowed-methods:
+      - GET
+      - POST
+      - PUT
+      - DELETE
+      - OPTIONS
+    allowed-headers: "*"
+    allow-credentials: true
+
   datasource:
     url: jdbc:postgresql://yootaek.cfw0s4ai6brl.ap-northeast-2.rds.amazonaws.com:5432/postgres
     username: postgres
