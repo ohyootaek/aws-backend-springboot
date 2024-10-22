@@ -2,17 +2,6 @@ spring:
   config:
     activate:
       on-profile: prod
-  cors:
-    allowed-origins:
-      - "http://localhost:3000"
-    allowed-methods:
-      - GET
-      - POST
-      - PUT
-      - DELETE
-      - OPTIONS
-    allowed-headers: "*"
-    allow-credentials: true
 
   datasource:
     url: jdbc:postgresql://yootaek.cfw0s4ai6brl.ap-northeast-2.rds.amazonaws.com:5432/postgres
