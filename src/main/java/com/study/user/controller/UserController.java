@@ -10,6 +10,8 @@ import com.study.user.service.UserService;
 import com.study.utils.HashUtil;
 import com.study.utils.JwtUtil;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -31,7 +33,7 @@ public class UserController {
    * @return UserDto 사용자 정보
    */
   @PostMapping("/login")
-  public UserResponseDto postLogin(@RequestBody UserInDto dto) {
+  public ResponseEntity<UserResponseDto> postLogin(@RequestBody UserInDto dto) {
     /*vo 변환*/
     UserInVo vo = userMapstruct.toInUserDto(dto);
 
@@ -41,19 +43,38 @@ public class UserController {
     vo.setPwd(digest);
     UserOutVo userOutVo = userService.selectUserInfo(vo);
 
-    JwtTokenVo jwtTokenVo = new JwtTokenVo();
     /*jwt token 생성*/
-    if(userOutVo != null) {
+    JwtTokenVo jwtTokenVo = new JwtTokenVo();
+    if (userOutVo != null) {
       String accessToken = jwtUtil.generateAccessToken(userOutVo.getId());
       String refleshToken = jwtUtil.generateRefleshToken(userOutVo.getId());
       jwtTokenVo.setAccessToken(accessToken);
       jwtTokenVo.setRefleshToken(refleshToken);
+
+      UserResponseDto responseDto = new UserResponseDto();
+      responseDto.setUserInfo(userOutVo);
+      responseDto.setJwtToken(jwtTokenVo);
+
+      return ResponseEntity.ok(responseDto);
+    } else {
+      return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(null);
     }
-
-    UserResponseDto responseDto = new UserResponseDto();
-    responseDto.setUserInfo(userOutVo);
-    responseDto.setJwtToken(jwtTokenVo);
-
-    return responseDto;
   }
+
+  @PostMapping("/refresh")
+  public ResponseEntity<JwtTokenVo> postRefreshToken(@RequestBody String refreshToken) {
+
+    String token = jwtUtil.refleshAccessToken(refreshToken);
+    if(token != null) {
+      String userId = jwtUtil.validateToken(token);
+      JwtTokenVo tokenVo = new JwtTokenVo();
+      String accessToken = jwtUtil.generateAccessToken(userId);
+      String refleshToken = jwtUtil.generateRefleshToken(userId);
+      tokenVo.setAccessToken(accessToken);
+      tokenVo.setRefleshToken(refleshToken);
+      return ResponseEntity.ok(tokenVo);
+    }
+    return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(null);
+  }
+
 }
