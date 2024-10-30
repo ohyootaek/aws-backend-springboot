@@ -7,5 +7,5 @@ import lombok.Setter;
 @Setter
 public class JwtTokenVo {
   private String accessToken;
-  private String refleshToken;
+  private String refreshToken;
 }

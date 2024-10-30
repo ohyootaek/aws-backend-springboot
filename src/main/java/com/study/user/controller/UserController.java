@@ -49,7 +49,7 @@ public class UserController {
       String accessToken = jwtUtil.generateAccessToken(userOutVo.getId());
       String refleshToken = jwtUtil.generateRefleshToken(userOutVo.getId());
       jwtTokenVo.setAccessToken(accessToken);
-      jwtTokenVo.setRefleshToken(refleshToken);
+      jwtTokenVo.setRefreshToken(refleshToken);
 
       UserResponseDto responseDto = new UserResponseDto();
       responseDto.setUserInfo(userOutVo);
@@ -71,7 +71,7 @@ public class UserController {
       String accessToken = jwtUtil.generateAccessToken(userId);
       String refleshToken = jwtUtil.generateRefleshToken(userId);
       tokenVo.setAccessToken(accessToken);
-      tokenVo.setRefleshToken(refleshToken);
+      tokenVo.setRefreshToken(refleshToken);
       return ResponseEntity.ok(tokenVo);
     }
     return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(null);
