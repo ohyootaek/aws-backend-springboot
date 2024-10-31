@@ -21,6 +21,13 @@ public class JwtFilter extends OncePerRequestFilter {
   @Override
   protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
       throws ServletException, IOException {
+    String path = request.getServletPath();
+
+    // 로그인 및 토큰 갱신 요청은 필터 통과
+    if ("/user/login".equals(path) || "/user/refresh".equals(path)) {
+      filterChain.doFilter(request, response);
+      return;
+    }
     final String authHeader = request.getHeader("Authorization");
 
     if (authHeader != null && authHeader.startsWith("Bearer ")) {
