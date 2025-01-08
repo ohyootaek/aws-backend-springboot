@@ -26,7 +26,7 @@ public class CorsConfig implements WebMvcConfigurer {
           .allowCredentials(true);
     } else if ("local".equals(activeProfile)) {
       registry.addMapping("/**")
-          .allowedOrigins("http://localhost:5173, ") // 로컬 환경에 맞는 origin
+          .allowedOrigins("http://localhost:5173") // 로컬 환경에 맞는 origin
           .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
           .allowedHeaders("*")
           .allowCredentials(true);
