@@ -18,7 +18,7 @@ public class WebSocketConfig implements WebSocketConfigurer {
     @Override
     public void registerWebSocketHandlers(WebSocketHandlerRegistry registry) {
         registry.addHandler(new MyWebSocketHandler(redisService), "/ws/chat")
-            .setAllowedOrigins("http://localhost:5173", "http://cariros.store")
+            .setAllowedOrigins("http://localhost:5173", "http://cariros.store", "https://cariros.store")
             .addInterceptors(new HttpSessionHandshakeInterceptor()); // optional: 세션 정보 추가
     }
 }
