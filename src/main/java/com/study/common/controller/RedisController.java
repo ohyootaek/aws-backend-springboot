@@ -1,5 +1,6 @@
 package com.study.common.controller;
 
+import com.study.common.model.dto.ChatMessageDto;
 import com.study.common.model.dto.RedisInDto;
 import com.study.common.model.vo.RedisInVo;
 import com.study.common.service.RedisService;
@@ -72,11 +73,5 @@ public class RedisController {
     } catch (Exception e) {
       return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null); // 500
     }
-  }
-
-  @PostMapping("/publish")
-  public String publishMessage(@RequestParam String message) {
-    redisService.publish(message);
-    return message;
   }
 }
